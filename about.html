@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>展覧会について</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="./images/favicon.png">
+</head>
+<body>
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-button">
+	<span></span>
+</label>
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-button">
+</label>
+
+<nav class="menu-nav">
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="concept.html">Concept</a></li>
+		<li><a href="artworks.html">Artworks</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li>
+			<a href="https://www.(xx)instagram.com/reflecting_mirror_image" target=”_blank”>
+			<img src="./images/Instagram_Glyph_Black.svg" alt="画像1の説明文" class="instagram_icon">
+			</a>
+		</li>
+	</ul>
+</nav>
+<main class="page">
+	<div class="scroll-fade-in">
+			<div class="about">
+				<p>展覧会「鏡像をうつす」</p>
+				<p>会期：2025年10月23日(木)〜2025年10月27日(月)</p>
+				<p>時間：10:00〜20:00　(最終日のみ〜18:00)</p>
+			</div>
+			<div class="about2">
+				<p>出展者</p>
+				<p>AI、Huraku、Kayhan Yildiz、Loki、ぎむ、椎名厚太、ゆうか、レメーゲン</p>
+			</div>
+			<div class="about2">
+				<p>アクセス</p>
+				<p>アートスペースouro</p>
+				<a href="https://www.google.com/maps/place/%E3%82%A2%E3%83%BC%E3%83%88%E3%82%B9%E3%83%9A%E3%83%BC%E3%82%B9OURO/@35.7025518,139.5779736,16z/data=!4m6!3m5!1s0x6018efb35aaa99ad:0xcca9e32d89e56897!8m2!3d35.702801!4d139.5848583!16s%2Fg%2F11w3zk1y5q?authuser=0&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target=”_blank”>
+					<div class="access">
+						<p class="underline">東京都武蔵野市吉祥寺南町2-17-5</p>
+						<p class="underline">JR中央線・京王井の頭線 吉祥寺駅北口から徒歩5分</p>
+					</div>
+				</a>
+			</div>
+	</div>
+	<div class="footer-text">
+		<a href="contact.html" class="footer_fadein_2">&copy; 2025 鏡像をうつす</a>
+	</div>
+</main>
+<script>
+// ハンバーガーメニューの表示
+	document.addEventListener('DOMContentLoaded', () => {
+	const menuButton = document.querySelector('.menu-button');
+	setTimeout(() => {
+	menuButton.classList.add('visible');
+	}, 700);
+});
+
+// フェードイン処理
+const fadeInElements = document.querySelectorAll('.scroll-fade-in');
+const handleScroll = () => {
+	fadeInElements.forEach(element => {
+	const elementPosition = element.getBoundingClientRect().top;
+	const screenHeight = window.innerHeight;
+	// 要素が画面の80%の位置に来たら'active'クラスを追加
+	if (elementPosition < screenHeight * 0.8) {
+	element.classList.add('active');
+	} else {
+	element.classList.remove('active');
+	}
+});
+};
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+</script>
+</body>
+</html>
