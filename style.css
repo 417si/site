@@ -45,6 +45,7 @@ html, body {
 	font-size: 20px;
 	margin-bottom: 5px;
 	text-align: center;
+	color:#ff00ff;
 }
 
 @media (max-width: 725px) {
