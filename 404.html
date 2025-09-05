@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>展示作品</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="./images/favicon.png">
+</head>
+<body>
+
+<main class="page">
+	<div class="scroll-fade-in">
+		<div class="notfound">
+			<h1>404</h1>
+			<p>「このページはどこ？」</p>
+			<p>鏡は答えませんでした。</p>
+			<p><br><p>
+			<a href="index.html"><p class="underline">ホームに戻る</p></a>
+		</div>
+	</div>
+	<div class="footer-text">
+		<a href="contact.html" class="footer_fadein_2">&copy; 2025 鏡像をうつす</a>
+	</div>
+</main>
+<script>
+// ハンバーガーメニューの表示
+	document.addEventListener('DOMContentLoaded', () => {
+	const menuButton = document.querySelector('.menu-button');
+	setTimeout(() => {
+	menuButton.classList.add('visible');
+	}, 700);
+});
+
+// フェードイン処理
+	const fadeInElements = document.querySelectorAll('.scroll-fade-in');
+	const handleScroll = () => {
+	fadeInElements.forEach(element => {
+	const elementPosition = element.getBoundingClientRect().top;
+	const screenHeight = window.innerHeight;
+// 要素が画面の80%の位置に来たら'active'クラスを追加
+	if (elementPosition < screenHeight * 0.8) {
+	element.classList.add('active');
+	} else {
+	element.classList.remove('active');
+	}
+});
+};
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+</script>
+</body>
+</html>
