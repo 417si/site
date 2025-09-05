@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>コンセプト</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="./images/favicon.png">
+</head>
+<body>
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-button">
+	<span></span>
+</label>
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="menu-button">
+</label>
+
+<nav class="menu-nav">
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="concept.html">Concept</a></li>
+		<li><a href="artworks.html">Artworks</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li>
+			<a href="https://www.(xx)instagram.com/reflecting_mirror_image" target=”_blank”>
+			<img src="./images/Instagram_Glyph_Black.svg" alt="画像1の説明文" class="instagram_icon">
+			</a>
+		</li>
+	</ul>
+</nav>
+<main class="page">
+	<div class="scroll-fade-in">
+
+			<div class="concept">
+				<p>鏡像をうつす</p>
+				<p>人は鏡に███をみる。</p>
+				<p>乱反射を繰り返し、実像は原型を失った。</p>
+				<p>鏡の彼方に”鏡像をうつす”</p>
+			</div>
+
+	</div>
+	<div class="footer-text">
+		<a href="contact.html" class="footer_fadein_2">&copy; 2025 鏡像をうつす</a>
+	</div>
+</main>
+<script>
+// ハンバーガーメニューの表示
+	document.addEventListener('DOMContentLoaded', () => {
+	const menuButton = document.querySelector('.menu-button');
+	setTimeout(() => {
+	menuButton.classList.add('visible');
+	}, 700);
+});
+
+// フェードイン処理
+	const fadeInElements = document.querySelectorAll('.scroll-fade-in');
+	const handleScroll = () => {
+	fadeInElements.forEach(element => {
+	const elementPosition = element.getBoundingClientRect().top;
+	const screenHeight = window.innerHeight;
+// 要素が画面の80%の位置に来たら'active'クラスを追加
+	if (elementPosition < screenHeight * 0.8) {
+	element.classList.add('active');
+	} else {
+	element.classList.remove('active');
+	}
+});
+};
+
+window.addEventListener('scroll', handleScroll);
+handleScroll();
+</script>
+</body>
+</html>
