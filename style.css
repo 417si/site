@@ -31,6 +31,30 @@ html, body {
 	text-align: center;
 }
 }
+.notfound h1 {
+	font-family: "AozoraMincho";
+	font-weight:100;
+	font-size: 200px;
+	margin:0;
+	padding-top:10%;
+	margin-bottom: 15px;
+	text-align: center;
+}
+.notfound p {
+	font-family: "AozoraMincho";
+	font-size: 20px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+@media (max-width: 725px) {
+.concept p {
+	font-family: "AozoraMincho";
+	font-size: 17px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+}
 
 .about p {
 	font-family: "AozoraMincho";
