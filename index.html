@@ -1,109 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>鏡像をうつす</title>
-<link rel="stylesheet" href="style.css" />
-<link rel="icon" type="image/png" href="./images/favicon.png">
+<meta charset="UTF-8">
+<title>#emptea gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+#gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+</style>
 </head>
+
 <body>
-<input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-button">
-	<span></span>
-</label>
-<input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-button">
-</label>
 
-<nav class="menu-nav">
-	<ul>
-		<li><a href="index.html">Home</a></li>
-		<li><a href="about.html">About</a></li>
-		<li><a href="concept.html">Concept</a></li>
-		<li><a href="artworks.html">Artworks</a></li>
-		<li><a href="contact.html">Contact</a></li>
-		<li>
-			<a href="https://www.(xx)instagram.com/reflecting_mirror_image" target=”_blank”>
-			<img src="./images/Instagram_Glyph_Black.svg" alt="画像1の説明文" class="instagram_icon">
-			</a>
-		</li>
-	</ul>
-</nav>
-<main class="page">
-	<img id="slideshowImage" src="animation/001.png" alt="スライドショー画像" class="slideshow">
-	<div class="footer-text">
-		<a href="contact.html" class="footer_fadein">&copy; 2025 鏡像をうつす</a>
-	</div>
-</main>
+<h2>#emptea gallery</h2>
+<p id="status">読み込み中…</p>
+<div id="gallery"></div>
+
 <script>
-// ドキュメントが完全に読み込まれた後に実行
-	document.addEventListener('DOMContentLoaded', () => {
-	const menuButton = document.querySelector('.menu-button');
-	setTimeout(() => {
-	menuButton.classList.add('visible');
-	}, 1000);
+const HASHTAG = "%23emptea";
+const NITTER = "https://nitter.poast.org";
+const URL = `${NITTER}/search?q=${HASHTAG}&f=tweets`;
+const CORS = "https://api.allorigins.win/raw?url=";
 
-const images = [
-		'animation/001.png',
-		'animation/002.png',
-		'animation/003.png',
-		'animation/004.png',
-		'animation/005.png',
-		'animation/006.png',
-		'animation/007.png',
-		'animation/008.png',
-		'animation/009.png',
-		'animation/010.png',
-		'animation/011.png',
-		'animation/012.png',
-		'animation/013.png',
-		'animation/014.png',
-		'animation/015.png',
-		'animation/016.png',
-		'animation/017.png',
-		'animation/018.png',
-		'animation/019.png',
-		'animation/020.png',
-		'animation/021.png',
-		'animation/022.png',
-		'animation/023.png',
-		'animation/024.png',
-		'animation/025.png',
-		'animation/026.png',
-		'animation/027.png',
-		'animation/028.png',
-		'animation/029.png',
-		'animation/030.png',
-		'animation/031.png',
-		'animation/032.png',
-		'animation/033.png',
-		'animation/034.png',
-		'animation/035.png',
-		'animation/036.png',
-		'animation/037.png',
-		'animation/038.png',
-		'animation/039.png',
-		'animation/040.png'
-	];
-	const slideshowImage = document.getElementById('slideshowImage');
-	let currentIndex = 0;
+fetch(CORS + encodeURIComponent(URL))
+  .then(res => res.text())
+  .then(html => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const imgs = [...doc.querySelectorAll("a.still-image img")];
 
-	// 1秒ごとに画像を変更する処理
-	const slideshowInterval = setInterval(() => {
-		// 次の画像のインデックスを計算
-		currentIndex++;
+    imgs.forEach(img => {
+      const a = document.createElement("a");
+      a.href = img.closest("a").href;
+      a.target = "_blank";
 
-		// 最後の画像に達したらタイマーを停止
-		if (currentIndex >= images.length) {
-			clearInterval(slideshowInterval);
-			return; // 処理を終了
-		}
+      const image = document.createElement("img");
+      image.src = img.src;
+      image.loading = "lazy";
 
-		// 画像の src を更新
-		slideshowImage.src = images[currentIndex];
-	}, 0033); 
-});
+      a.appendChild(image);
+      gallery.appendChild(a);
+    });
+
+    status.textContent =
+      imgs.length ? `${imgs.length} 枚の画像を表示` : "画像が見つかりません";
+  })
+  .catch(() => {
+    status.textContent = "読み込みに失敗しました";
+  });
 </script>
+
 </body>
 </html>
