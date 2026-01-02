@@ -4,66 +4,14 @@
 <meta charset="UTF-8">
 <title>#emptea gallery</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-#gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
-}
-
-#gallery img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-<h2>#emptea gallery</h2>
-<p id="status">読み込み中…</p>
+<h1>#emptea gallery</h1>
+<div id="status">loading…</div>
 <div id="gallery"></div>
 
-<script>
-const HASHTAG = "%23emptea";
-const NITTER = "https://nitter.poast.org";
-const URL = `${NITTER}/search?q=${HASHTAG}&f=tweets`;
-const CORS = "https://api.allorigins.win/raw?url=";
-
-fetch(CORS + encodeURIComponent(URL))
-  .then(res => res.text())
-  .then(html => {
-    const doc = new DOMParser().parseFromString(html, "text/html");
-    const imgs = [...doc.querySelectorAll("a.still-image img")];
-
-    imgs.forEach(img => {
-      const a = document.createElement("a");
-      a.href = img.closest("a").href;
-      a.target = "_blank";
-
-      const image = document.createElement("img");
-      image.src = img.src;
-      image.loading = "lazy";
-
-      a.appendChild(image);
-      gallery.appendChild(a);
-    });
-
-    status.textContent =
-      imgs.length ? `${imgs.length} 枚の画像を表示` : "画像が見つかりません";
-  })
-  .catch(() => {
-    status.textContent = "読み込みに失敗しました";
-  });
-</script>
-
+<script src="gallery.js"></script>
 </body>
 </html>
