@@ -1,8 +1,24 @@
 body {
-	font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-	margin: 20px;
-	background-color: #f0f2f5;
-	color: #333;
+    font-family: 
+        "BIZ UDPGothic",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
+    font-weight: 300; 
+    
+    margin: 20px;
+    background-color: #f0f2f5;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* タイトルなども少し細くすると統一感が出ます */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #666;
+    font-weight: 600; /* 通常より少し細め */
 }
 
 #container {
@@ -12,13 +28,6 @@ body {
 	background: #fff;
 	border-radius: 12px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-h1 {
-	text-align: center;
-	font-size: 24px;
-	margin-bottom: 20px;
-	color: #444;
 }
 
 textarea {
