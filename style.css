@@ -1,6 +1,4 @@
 body {
-    /* 1. 欧文フォント(Roboto/Helvetica)を先に書き、和文(Noto)を後に書く */
-    /* これにより、英数字には欧文用、日本語には和文用が適用されます */
     font-family: 
         'Roboto', 
         'Helvetica Neue', 
@@ -8,17 +6,15 @@ body {
         'Noto Sans JP', 
         sans-serif;
     
-    /* 2. ウェイトを「400」に上げます。300だと日本語に負けてしまいます */
     font-weight: 400; 
     
-    /* 3. 英数字と日本語の「視覚的な大きさ」を揃える調整 */
-    font-feature-settings: "palt"; /* プロポーショナルメトリクスを有効に */
+    font-feature-settings: "palt";
     letter-spacing: 0.02em;
     line-height: 1.8;
 
     margin: 20px;
     background-color: #f0f2f5;
-    color: #222; /* 黒を少し強めてコントラストを安定させる */
+    color: #222; 
     -webkit-font-smoothing: antialiased;
 }
 
