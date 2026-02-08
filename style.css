@@ -1,10 +1,44 @@
 body {
-    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 300; 
+    /* 1. 欧文フォント(Roboto/Helvetica)を先に書き、和文(Noto)を後に書く */
+    /* これにより、英数字には欧文用、日本語には和文用が適用されます */
+    font-family: 
+        'Roboto', 
+        'Helvetica Neue', 
+        'Arial', 
+        'Noto Sans JP', 
+        sans-serif;
+    
+    /* 2. ウェイトを「400」に上げます。300だと日本語に負けてしまいます */
+    font-weight: 400; 
+    
+    /* 3. 英数字と日本語の「視覚的な大きさ」を揃える調整 */
+    font-feature-settings: "palt"; /* プロポーショナルメトリクスを有効に */
+    letter-spacing: 0.02em;
+    line-height: 1.8;
+
     margin: 20px;
     background-color: #f0f2f5;
-    color: #555;
+    color: #222; /* 黒を少し強めてコントラストを安定させる */
     -webkit-font-smoothing: antialiased;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 25px;
+    padding: 20px;
+    
+    font-family: inherit;
+    font-size: 17px; /* 1px大きくすると英字の視認性が一気に上がります */
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    resize: vertical;
+    box-sizing: border-box;
+    outline: none;
 }
 
 /* タイトルなども少し細くすると統一感が出ます */
@@ -23,19 +57,6 @@ h1 {
 	background: #fff;
 	border-radius: 12px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-textarea {
-	width: 100%;
-	height: 300px;
-	margin-bottom: 25px;
-	padding: 15px;
-	font-size: 16px;
-	border: 2px solid #e0e0e0;
-	border-radius: 8px;
-	resize: vertical;
-	box-sizing: border-box;
-	transition: border-color 0.3s;
 }
 
 textarea:focus {
