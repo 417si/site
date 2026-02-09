@@ -1,21 +1,28 @@
 body {
-    font-family: 
-        'Roboto', 
-        'Helvetica Neue', 
-        'Arial', 
-        'Noto Sans JP', 
-        sans-serif;
+    /* 英字は Roboto(300)、日本語は Noto Sans JP(400) を狙い撃ちします */
+    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
     
-    font-weight: 400; 
+    /* ベースを 300 に設定。これで英字（Roboto）は細くなります */
+    font-weight: 300; 
     
     font-feature-settings: "palt";
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em; /* わずかに広げてスッキリさせる */
     line-height: 1.8;
 
     margin: 20px;
     background-color: #f0f2f5;
-    color: #222; 
+    color: #333; /* 真っ黒より少しグレーにすると細身のフォントが綺麗に見えます */
     -webkit-font-smoothing: antialiased;
+}
+
+/* 日本語の文字（漢字・ひらがな・カタカナ）が含まれる場合、
+   300だと細すぎてかすれる場合があるため、
+   もし日本語が細すぎると感じたらここを 400 に調整してください。
+*/
+@lang(ja) {
+    body {
+        font-weight: 400;
+    }
 }
 
 textarea {
@@ -25,8 +32,10 @@ textarea {
     padding: 20px;
     
     font-family: inherit;
-    font-size: 17px; /* 1px大きくすると英字の視認性が一気に上がります */
-    font-weight: inherit;
+    font-size: 17px;
+    /* textarea 内で英字が太く見えるのを防ぐため明示的に指定 */
+    font-weight: 300; 
+    
     letter-spacing: inherit;
     line-height: inherit;
     
@@ -35,6 +44,7 @@ textarea {
     resize: vertical;
     box-sizing: border-box;
     outline: none;
+    color: #444;
 }
 
 /* タイトルなども少し細くすると統一感が出ます */
