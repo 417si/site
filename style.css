@@ -1,8 +1,6 @@
 body {
-    /* Robotoは400、Noto Sans JPは300が適用されるようにコントロールします */
     font-family: 'Roboto', 'Noto Sans JP', sans-serif;
     
-    /* 一旦、全体のベースを400に設定（これで英字はRoboto 400になります） */
     font-weight: 400; 
     
     font-feature-settings: "palt";
@@ -15,9 +13,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 日本語部分だけを明示的に細くして、英字の太さに「歩み寄り」ます */
-/* unicode-rangeが使えない簡易的な方法として、全体を300にし、
-   英字用フォントが当たっている場所の視覚バランスを調整します */
 textarea {
     width: 100%;
     height: 300px;
@@ -26,31 +21,24 @@ textarea {
     
     font-family: 'Roboto', 'Noto Sans JP', sans-serif;
     font-size: 17px;
-    
-    /* ここを400にすると、Robotoは400、Noto Sans JPも400になります。
-       もし日本語がまだ太いと感じるなら、
-       font-familyからNotoを外した別クラスを作る等の工夫が必要ですが、
-       まずはこの「両方400 + Roboto優先」で英字の存在感を出してみてください。
-    */
     font-weight: 400; 
     
     letter-spacing: inherit;
     line-height: inherit;
     
-    border: 2px solid #ddd;
+    border: 0.8px solid #ddd;
     border-radius: 12px;
     resize: vertical;
     box-sizing: border-box;
     outline: none;
 }
 
-/* タイトルなども少し細くすると統一感が出ます */
 h1 {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
     color: #666;
-    font-weight: 600; /* 通常より少し細め */
+    font-weight: 600; 
 }
 
 #container {
@@ -79,7 +67,7 @@ textarea:focus {
 	align-items: center;
 	padding: 15px 20px;
 	background: #f8f9fa;
-	border: 1px solid #eee;
+	border: 0.8px solid #eee;
 	border-radius: 8px;
 }
 
