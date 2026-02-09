@@ -7,7 +7,7 @@ textInput.addEventListener('input', () => {
 	const val = textInput.value;
 
 	charCount.textContent = val.length;
-
+	
 	const noNewline = val.replace(/\n/g, '');
 	noNewlineCount.textContent = noNewline.length;
 
