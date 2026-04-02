@@ -3,6 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="towRIV-SNMDPzTcvSIF0iODt2aPSFSxsbaukoNgxAQo" />
+	<meta name="description" content="ブラウザ上で動作するシンプルな文字数カウントツールです。空白や改行を除いた文字数もリアルタイムで計算します。">
+	<meta property="og:title" content="文字数カウント - シンプルで高速">
+	<meta property="og:description" content="インストール不要。入力するだけで文字数をすぐに確認できます。">
 	<title>文字数カウント</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,25 +17,38 @@
 	<link rel="icon" href="/favicon-light.png">
 </head>
 <body>
-	<div id="container">
-		<h1>文字数カウント</h1>
-		<textarea id="text-input" placeholder="ここにテキストを入力してください..." autofocus></textarea>
-
-		<div class="result-grid">
-			<div class="count-box">
-				<span class="label">文字数</span>
-				<span id="char-count" class="count-value">0</span>
-			</div>
-			<div class="count-box">
-				<span class="label">改行を除く</span>
-				<span id="no-newline-count" class="count-value">0</span>
-			</div>
-			<div class="count-box">
-			<span class="label">空白・改行を除く</span>
-				<span id="no-space-count" class="count-value">0</span>
+		<div id="container">
+			<h1>文字数カウント</h1>
+			<textarea id="text-input" placeholder="ここにテキストを入力してください..." autofocus></textarea>
+			
+			<div class="result-grid">
+				<div class="count-box">
+					<span class="label">文字数</span>
+					<span id="char-count" class="count-value">0</span>
+				</div>
+				<div class="count-box">
+					<span class="label">改行を除く</span>
+					<span id="no-newline-count" class="count-value">0</span>
+				</div>
+				<div class="count-box">
+					<span class="label">空白・改行を除く</span>
+					<span id="no-space-count" class="count-value">0</span>
+				</div>
 			</div>
 		</div>
-	</div>
-	<script src="script.js"></script>
-</body>
+		
+		<footer class="footer">
+			<a href="#" id="disclaimer-link">免責事項</a>
+		</footer>
+		
+		<div id="modal-overlay" class="modal-overlay">
+			<div class="modal-content">
+				<h3>免責事項</h3>
+				<p>本サイトの利用により生じた損害やトラブルについて、開発者は一切の責任を負いません。</p>
+				<button id="close-modal">閉じる</button>
+			</div>
+		</div>
+		
+		<script src="script.js"></script>
+	</body>
 </html>
