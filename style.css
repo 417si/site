@@ -1,16 +1,32 @@
 body {
     font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-    
     font-weight: 400; 
-    
     font-feature-settings: "palt";
     letter-spacing: 0.02em;
     line-height: 1.8;
-
-    margin: 20px;
+    margin: 0;
+    padding: 20px;
     background-color: #f0f2f5;
     color: #222;
     -webkit-font-smoothing: antialiased;
+}
+
+#container {
+    /* 横幅を元の 90% に戻しました */
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #444;
+    font-weight: 600; 
 }
 
 textarea {
@@ -18,67 +34,116 @@ textarea {
     height: 300px;
     margin-bottom: 25px;
     padding: 20px;
-    
-    font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+    font-family: inherit;
     font-size: 17px;
-    font-weight: 400; 
-    
-    letter-spacing: inherit;
-    line-height: inherit;
-    
-    border: 0.8px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 12px;
     resize: vertical;
     box-sizing: border-box;
     outline: none;
-}
-
-h1 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #666;
-    font-weight: 600; 
-}
-
-#container {
-	max-width: 90%;
-	margin: 0 auto;
-	padding: 30px;
-	background: #fff;
-	border-radius: 12px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s;
 }
 
 textarea:focus {
-	outline: none;
-	border-color: #007bff;
+    border-color: #007bff;
 }
 
 .result-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
 .count-box {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 20px;
-	background: #f8f9fa;
-	border: 0.8px solid #eee;
-	border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 8px;
 }
 
 .label {
-	font-size: 14px;
-	color: #666;
-	font-weight: bold;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
 }
 
 .count-value {
-	font-size: 24px;
-	font-weight: bold;
-	color: #007bff;
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* フッター（免責事項リンク） */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+#disclaimer-link {
+    font-size: 12px;
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.3s;
+}
+
+#disclaimer-link:hover {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+/* モーダル */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 85%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.modal-content p {
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+    margin: 20px 0;
+}
+
+#close-modal {
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+#close-modal:hover {
+    background: #000;
 }
