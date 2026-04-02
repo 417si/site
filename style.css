@@ -12,7 +12,6 @@ body {
 }
 
 #container {
-    /* 横幅を元の 90% に戻しました */
     max-width: 90%;
     margin: 20px auto;
     padding: 30px;
@@ -76,11 +75,26 @@ textarea:focus {
     color: #007bff;
 }
 
-/* フッター（免責事項リンク） */
 .footer {
     text-align: center;
-    margin-top: 20px;
-    padding-bottom: 40px;
+    padding: 20px 0;
+}
+
+@media (min-width: 615px) {
+    .footer {
+        position: fixed; 
+        bottom: 2.5%; 
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width: 614px) {
+    .footer {
+        margin-top: 20px; 
+        position: static; 
+    }
 }
 
 #disclaimer-link {
@@ -96,7 +110,6 @@ textarea:focus {
     border-color: #007bff;
 }
 
-/* モーダル */
 .modal-overlay {
     position: fixed;
     top: 0;
